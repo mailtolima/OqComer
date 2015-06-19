@@ -1,5 +1,6 @@
 package br.ufc.virtual.smd.oqcomer;
 
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
@@ -7,6 +8,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
 import android.widget.EditText;
 
 import br.ufc.virtual.smd.oqcomer.vo.Usuario;
@@ -18,6 +22,16 @@ public class LoginActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        View v = (findViewById(R.id.logo));
+        v.setPivotX(0);
+        v.setPivotY(v.getWidth()/2);
+        ObjectAnimator animation = ObjectAnimator.ofFloat(v, "rotationX", -1.0f, 1f);
+        animation.setDuration(2000);
+        animation.setRepeatMode(ObjectAnimator.REVERSE);
+        animation.setRepeatCount(ObjectAnimator.INFINITE);
+        animation.setInterpolator(new LinearInterpolator());
+        animation.start();
     }
 
     /*
