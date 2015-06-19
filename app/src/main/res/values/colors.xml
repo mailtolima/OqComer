@@ -31,6 +31,7 @@
     <color name="list_background_pressed">#F48FB1</color>
     <color name="counter_text_bg">#FF9800</color>
     <color name="action_bar">#FFB842</color>
+    <color name="action_bar_dark">#E89425</color>
     <color name="alpha_gray">#B3808080</color>
     <color name="category_select">#747474</color>
     <color name="category_select_line_divisor">#AAAAAA</color>

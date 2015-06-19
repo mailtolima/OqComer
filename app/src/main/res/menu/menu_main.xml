@@ -9,6 +9,6 @@
         android:id="@+id/action_refresh"
         android:orderInCategory="100"
         app:showAsAction="always"
-        android:icon="@drawable/ic_fab"
+        android:icon="@drawable/abc_ic_search_api_mtrl_alpha"
         android:title="Refresh"/>
 </menu>
