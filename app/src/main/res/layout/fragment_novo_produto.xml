@@ -26,6 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:background="@drawable/take_picture_new_product" />
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
@@ -103,11 +104,14 @@
             </LinearLayout>
 
             <EditText
-                android:layout_marginLeft="65dp"
-                android:layout_marginRight="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:hint="Descrição geral"/>
+                android:layout_marginLeft="65dp"
+                android:layout_marginRight="10dp"
+                android:padding="5dp"
+                android:gravity="top|left"
+                android:background="@drawable/background_border_form"
+                android:hint="Descrição geral" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -132,19 +136,39 @@
                     android:textSize="20sp" />
             </LinearLayout>
 
-            <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/sp_satisfaction_types"
-                android:layout_marginLeft="65dp"
-                android:layout_marginTop="10dp" />
-
-            <EditText
-                android:layout_marginLeft="60dp"
-                android:layout_marginRight="10dp"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Texto de avaliação"/>
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/sp_satisfaction_types"
+                    android:layout_width="180dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="45dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:background="@drawable/background_border_form"/>
+
+                <ImageView
+                    android:id="@+id/iv_satisfaction_type_image"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/the_best_icon" />
+            </LinearLayout>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="10dp"
+                android:hint="Texto de avaliação" />
 
             <Button
                 android:id="@+id/cadastrarBotao"

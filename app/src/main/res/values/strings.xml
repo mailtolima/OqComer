@@ -10,9 +10,11 @@
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string-array name="satisfaction_types" >
-        <item >Muito Bom</item>
-        <item >Bom</item>
-        <item >Razoável</item>
-        <item >Ruim</item>
+        <item >o melhor</item>
+        <item >delicioso</item>
+        <item >ótimo</item>
+        <item >muito bom</item>
+        <item >curti</item>
+        <item >bom</item>
     </string-array>
 </resources>
