@@ -171,4 +171,11 @@ public class MainActivity extends AppCompatActivity {
         mDrawerLayout.closeDrawer(mDrawerList);
     }
 
+    @Override
+    public void onBackPressed() {
+        if (getSupportFragmentManager().getBackStackEntryAt(getSupportFragmentManager().getBackStackEntryCount() - 1).getName() == MainFragment.class.getName()) {
+            finish();
+        }
+        super.onBackPressed();
+    }
 }
