@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -6,85 +6,91 @@
     android:paddingRight="4dp"
     android:paddingTop="4dp"
     android:paddingBottom="4dp"
+    android:background="@drawable/login_bg"
+    android:orientation="vertical"
     tools:context="br.ufc.virtual.smd.oqcomer.LoginActivity">
 
 
-        <TextView
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:adjustViewBounds="true"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/login_logo"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="6">
+
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Usuário:"
-            android:id="@+id/usuarioRotulo"
-            android:textColor="#ffff8000"
-            android:layout_alignParentTop="true"
-            android:layout_alignLeft="@+id/usuarioTexto"
-            android:layout_alignStart="@+id/usuarioTexto" />
+            android:layout_margin="20dp"
+            android:background="@drawable/field_container"
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Senha:"
-            android:id="@+id/senhaRotulo"
-            android:textColor="#ffff8000"
-            android:layout_below="@+id/usuarioTexto"
-            android:layout_alignLeft="@+id/usuarioTexto"
-            android:layout_alignStart="@+id/usuarioTexto" />
+            <EditText
+                android:id="@+id/usuarioTexto"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="15dp"
+                android:padding="8dp"
+                android:gravity="center_vertical"
+                android:background="@drawable/field_bg"
+                android:hint="Nome de usuário"/>
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/usuarioTexto"
-            android:layout_below="@+id/usuarioRotulo"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            <EditText
+                android:id="@+id/usuarioSenha"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="15dp"
+                android:padding="8dp"
+                android:ems="10"
+                android:gravity="center_vertical"
+                android:inputType="textPassword"
+                android:background="@drawable/field_bg"
+                android:hint="Senha"/>
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:ems="10"
-            android:id="@+id/usuarioSenha"
-            android:layout_below="@+id/senhaRotulo"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignRight="@+id/usuarioTexto"
-            android:layout_alignEnd="@+id/usuarioTexto" />
+            <RelativeLayout
+                android:id="@+id/loginBotao"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/login_button"
+                android:onClick="loginBotaoOnClick">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Login"
-            android:id="@+id/loginBotao"
-            android:background="#ffff8000"
-            android:textColor="#ffffff"
-            android:onClick="loginBotaoOnClick"
-            android:layout_below="@+id/usuarioSenha"
-            android:layout_centerHorizontal="true" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/white"
+                    android:text="Entrar"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cadastrar"
-            android:id="@+id/cadastrarBotao"
-            android:background="#ffff8000"
-            android:textColor="#ffffff"
-            android:onClick="cadastrarBotaoOnClick"
-            android:layout_alignParentBottom="true"
-            android:layout_alignLeft="@+id/loginBotao"
-            android:layout_alignStart="@+id/loginBotao" />
+            </RelativeLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Se você é um novo usuário, clique em CADASTRAR"
-            android:id="@+id/cadastroRotulo"
-            android:textAlignment="center"
-            android:textColor="#ffff8000"
-            android:layout_above="@+id/cadastrarBotao"
-            android:layout_centerHorizontal="true" />
+            <RelativeLayout
+                android:id="@+id/cadastrarBotao"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/register_button"
+                android:onClick="cadastrarBotaoOnClick">
 
-</RelativeLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/white"
+                    android:text="Cadastrar"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</LinearLayout>
