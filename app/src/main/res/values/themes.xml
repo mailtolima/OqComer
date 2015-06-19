@@ -6,7 +6,7 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AppTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme.Base" parent="Theme.AppCompat.Light">
         <item name="colorPrimary">@color/action_bar</item>
         <item name="colorPrimaryDark">@color/action_bar</item>
         <item name="windowActionBar">false</item>

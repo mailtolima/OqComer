@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final int HOME = 0;
     public static final int LOGOUT = 1;
-
+    private static NavDrawerListAdapter adapter;
     protected Toolbar toolbarActionbar;
     private CharSequence mTitle;
     private CharSequence mDrawerTitle;
@@ -36,31 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
     private ArrayList<NavDrawerItem> navDrawerItems;
-    private static NavDrawerListAdapter adapter;
     private ActionBarDrawerToggle mDrawerToggle;
-
-    private ListView produtoLista;
-    private String[] itemName ={
-            "Safari",
-            "Camera",
-            "Global",
-            "FireFox",
-            "UC Browser",
-            "Android Folder",
-            "VLC Player",
-            "Cold War"
-    };
-    private String[] imagemPath ={
-            "http://e.cdn-hardware.com.br/static/20110413/m55ac8604.png",
-            "http://e.cdn-hardware.com.br/static/20110413/m55ac8604.png",
-            "http://e.cdn-hardware.com.br/static/20110413/m55ac8604.png",
-            "http://e.cdn-hardware.com.br/static/20110413/m55ac8604.png",
-            "http://e.cdn-hardware.com.br/static/20110413/m55ac8604.png",
-            "http://e.cdn-hardware.com.br/static/20110413/m55ac8604.png",
-            "http://e.cdn-hardware.com.br/static/20110413/m55ac8604.png",
-            "http://e.cdn-hardware.com.br/static/20110413/m55ac8604.png"
-    };
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,58 +48,22 @@ public class MainActivity extends AppCompatActivity {
 
         displayView(HOME);
 
-        /*
-        HttpGet uri = new HttpGet("http://example.com");
-
-        try {
-            DefaultHttpClient client = new DefaultHttpClient();
-            HttpResponse resp = client.execute(uri);
-
-            StatusLine status = resp.getStatusLine();
-            if (status.getStatusCode() != 200) {
-                //"HTTP error, invalid server status code: " + resp.getStatusLine();
-            }
-
-            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder builder = factory.newDocumentBuilder();
-            Document document = builder.parse(resp.getEntity().getContent());
-        } catch(Exception ex) {
-
-        }
-        */
-
-//        ProdutoListaAdapter adapter=new ProdutoListaAdapter(this, itemName, imagemPath);
-//        produtoLista =(ListView) findViewById(R.id.produtoLista);
-//        produtoLista.setAdapter(adapter);
-//
-//        produtoLista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                String selectedItem = itemName[+position];
-//                Toast.makeText(getApplicationContext(), selectedItem, Toast.LENGTH_SHORT).show();
-//            }
-//        });
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         if (mDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
@@ -174,8 +114,8 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
 
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
-                R.string.app_name, // nav drawer open - description for accessibility
-                R.string.app_name // nav drawer close - description for accessibility
+                R.string.app_name,
+                R.string.app_name
         ) {
             public void onDrawerClosed(View view) {
                 getSupportActionBar().setTitle(mTitle);
@@ -189,13 +129,12 @@ public class MainActivity extends AppCompatActivity {
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
-        getSupportActionBar().setDisplayShowHomeEnabled(false);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
     }
 
     private void displayView(int position) {
-        // update the main content by replacing fragments
 
         Fragment fragment = null;
         AlertDialog.Builder builder = null;
@@ -212,19 +151,16 @@ public class MainActivity extends AppCompatActivity {
         if (fragment != null) {
             FragmentTransaction transaction =  getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.frame_container, fragment).addToBackStack(fragment.getClass().getName()).commit();
-            // update selected item and title, then close the drawer
             setTitle(navMenuTitles[position]);
         } else {
             if(builder != null)
                 builder.show();
             else {
-                // error in creating fragment
                 Log.e("MainActivity", "Error in creating fragment");
             }
         }
         mDrawerList.setItemChecked(position, true);
         mDrawerList.setSelection(position);
-        //TODO Remove this when change navigation drawer to fragment
         mDrawerLayout.closeDrawer(mDrawerList);
     }
 
