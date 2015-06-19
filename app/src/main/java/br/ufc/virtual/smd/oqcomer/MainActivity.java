@@ -1,7 +1,6 @@
 package br.ufc.virtual.smd.oqcomer;
 
 import android.app.AlertDialog;
-import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -133,8 +132,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void novoProdutoOnClick(View v) {
-        Intent telaAlvo = new Intent(MainActivity.this, NovoProdutoActivity.class);
-        startActivity(telaAlvo);
+        Fragment fragment = new NovoProdutoFragment();
+        FragmentTransaction transaction =  getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame_container, fragment).addToBackStack(fragment.getClass().getName()).commit();
+        mDrawerLayout.closeDrawer(mDrawerList);
     }
 
     public Toolbar getToolbarActionBar() {
