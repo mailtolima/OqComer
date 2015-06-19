@@ -3,9 +3,11 @@ package br.ufc.virtual.smd.oqcomer;
 import android.app.AlertDialog;
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -43,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getToolbarActionBar();
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setHomeButtonEnabled(true);
 
         prepareNavigationDrawer();
 
@@ -81,15 +86,14 @@ public class MainActivity extends AppCompatActivity {
     public Toolbar getToolbarActionBar() {
         if (toolbarActionbar == null) {
             toolbarActionbar = (Toolbar) findViewById(R.id.toolbar);
-            if (toolbarActionbar != null) {
-                setSupportActionBar(toolbarActionbar);
-            }
+            setSupportActionBar(toolbarActionbar);
         }
         return toolbarActionbar;
     }
 
     private void prepareNavigationDrawer(){
         mTitle = mDrawerTitle = getTitle();
+        getSupportActionBar().setTitle(mTitle);
 
         navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items);
 
@@ -113,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
         mDrawerList.setAdapter(adapter);
         getSupportActionBar().setHomeButtonEnabled(true);
 
-        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbarActionbar,
                 R.string.app_name,
                 R.string.app_name
         ) {
@@ -128,10 +132,13 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
+        mDrawerToggle.syncState();
+    }
 
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
-
+    @Override
+    public void onPostCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
+        super.onPostCreate(savedInstanceState, persistentState);
+        mDrawerToggle.syncState();
     }
 
     private void displayView(int position) {
