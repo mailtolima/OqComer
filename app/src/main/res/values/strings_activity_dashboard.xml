@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="nav_drawer_items">
-        <item >COMO ME TRATO</item>
-        <item >SAIR</item>
+        <item>Lista de Produtos</item>
+        <item>Sair</item>
     </string-array>
 
     <array name="nav_drawer_icons">
