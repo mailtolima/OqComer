@@ -10,11 +10,13 @@
         android:layout_height="150dp">
 
         <ImageView
+            android:id="@+id/iv_food_banner"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:background="@drawable/brigadeiro" />
 
         <ImageView
+            android:id="@+id/iv_satisfaction_flag"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignParentRight="true"
@@ -54,6 +56,7 @@
                     android:background="@drawable/plate_name" />
 
                 <TextView
+                    android:id="@+id/tv_food_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -61,6 +64,7 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/tv_food_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
@@ -82,6 +86,7 @@
                     android:background="@drawable/place_name" />
 
                 <TextView
+                    android:id="@+id/tv_restaurant_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -89,6 +94,7 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/tv_restaurant_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
@@ -99,26 +105,29 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginTop="30dp">
+                android:layout_margin="30dp">
 
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginRight="15dp"
                     android:background="@drawable/avaliation_icon" />
 
                 <TextView
+                    android:id="@+id/tv_food_opinion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="João Paulo L. - 03/05/2015 20:30:00"
-                    android:textSize="12sp" />
+                    android:paddingTop="10dp"
+                    android:text="João Paulo L. - 03/05/2015 20:30:00\n\nÓtimo serviço e um preço bacana." />
 
                 <ImageView
+                    android:id="@+id/iv_satisfaction_type_image"
                     android:layout_width="30dp"
-                    android:layout_height="30dp" />
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/the_best_icon"
+                    android:gravity="center" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
