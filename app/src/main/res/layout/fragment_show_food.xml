@@ -102,22 +102,25 @@
                 android:layout_marginTop="30dp"
                 android:text="Silvio Santos Ipsum ma! Ao adquirir o carnê do Baú, você estará concorrendo a um prêmio de cem mil reaisam. Vem pra lá, mah você vai pra cá. Agora vai, agora vem pra láamm. Ma você está certo dissoam?" />
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="30dp">
 
                 <ImageView
+                    android:id="@+id/ic_rate"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:layout_marginRight="15dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
                     android:background="@drawable/avaliation_icon" />
 
                 <TextView
                     android:id="@+id/tv_food_opinion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_toEndOf="@id/ic_rate"
                     android:paddingTop="10dp"
                     android:text="João Paulo L. - 03/05/2015 20:30:00\n\nÓtimo serviço e um preço bacana." />
 
@@ -125,10 +128,10 @@
                     android:id="@+id/iv_satisfaction_type_image"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:layout_marginLeft="20dp"
-                    android:background="@drawable/the_best_icon"
-                    android:gravity="center" />
-            </LinearLayout>
+                    android:layout_marginStart="5dp"
+                    android:layout_toEndOf="@id/tv_food_opinion"
+                    android:background="@drawable/the_best_icon"/>
+            </RelativeLayout>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
