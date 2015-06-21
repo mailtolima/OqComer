@@ -57,7 +57,7 @@
                     android:background="@drawable/address_name" />
 
                 <TextView
-                    android:id="@+id/tv_restaurant_local"
+                    android:id="@+id/tv_restaurant_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"

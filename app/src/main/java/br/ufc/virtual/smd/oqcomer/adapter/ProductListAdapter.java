@@ -37,7 +37,7 @@ public class ProductListAdapter extends ArrayAdapter<String> {
 
         ImageView ivProductBanner = (ImageView) rowView.findViewById(R.id.iv_product_banner);
         TextView tvFoodName = (TextView) rowView.findViewById(R.id.tv_food_name);
-        TextView tvRestaurantLocal = (TextView) rowView.findViewById(R.id.tv_restaurant_local);
+        TextView tvRestaurantLocal = (TextView) rowView.findViewById(R.id.tv_restaurant_name);
         TextView tvLocalDistance = (TextView) rowView.findViewById(R.id.tv_local_distance);
         TextView tvCountComment = (TextView) rowView.findViewById(R.id.tv_count_comment);
         ImageView ivSatisfactionFlag = (ImageView) rowView.findViewById(R.id.iv_satisfaction_flag);

@@ -119,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
         mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                displayView(position - 1);
                 mDrawerLayout.closeDrawer(mDrawerList);
             }
         });
@@ -157,25 +158,26 @@ public class MainActivity extends AppCompatActivity {
                 fragment = new MainFragment();
                 break;
             case LOGOUT:
+                finish();
                 break;
             default:
                 break;
         }
 
+        mDrawerList.setItemChecked(position + 1, true);
+        mDrawerList.setSelection(position + 1);
+        mDrawerLayout.closeDrawer(mDrawerList);
         if (fragment != null) {
-            FragmentTransaction transaction =  getSupportFragmentManager().beginTransaction();
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.frame_container, fragment).addToBackStack(fragment.getClass().getName()).commit();
             setTitle(navMenuTitles[position]);
         } else {
-            if(builder != null)
+            if (builder != null)
                 builder.show();
             else {
                 Log.e("MainActivity", "Error in creating fragment");
             }
         }
-        mDrawerList.setItemChecked(position, true);
-        mDrawerList.setSelection(position);
-        mDrawerLayout.closeDrawer(mDrawerList);
     }
 
     @Override
